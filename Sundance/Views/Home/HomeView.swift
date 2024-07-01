@@ -25,13 +25,20 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
-                if let run = todaysRun {
-                    TodayView(run: run, isCompleted: isWorkoutCompleted(run))
+                VStack{
+                    if let run = todaysRun {
+                        TodayView(run: run, isCompleted: isWorkoutCompleted(run))
+                            .padding(.bottom)
+                    }
+                        
+                    
+                    Spacer()
+                    
+                    InsightsView(title: "Insights")
                 }
-                
-                InsightsView(title: "Insights")
             }
-            .navigationTitle("Sundance")
+            .edgesIgnoringSafeArea(.top)
+            .navigationTitle("Today")
             .onAppear {
                 if !dataLoaded {
                     loadAPI()

@@ -16,49 +16,73 @@ struct SignInView: View {
     @State private var errorMessage: String = ""
     @State private var showHome: Bool = false
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        VStack {
-            Text("👋")
-                .font(.system(size: 100))
-            
-            VStack{
-                Text("Sign In")
-                    .font(.title)
-                    .bold()
-                Text("To Sign in you need an Invite. If you have not received an invite you won't be able to sign in.")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.gray)
-            }
-            .padding()
-            
-            VStack(spacing: 20) {
-                TextField("Email", text: $username)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 18).stroke(Color(.systemGray5), lineWidth: 1))
-                    .padding(.horizontal, 20)
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
+        NavigationStack{
+            VStack {
+                Text("👋")
+                    .font(.system(size: 100))
                 
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 18).stroke(Color(.systemGray5), lineWidth: 1))
-                    .padding(.horizontal, 20)
+                VStack(spacing: 10){
+                    Text("Sign In")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.white)
+                    Text("To Sign in you need an Invite. If you have not received an invite you won't be able to sign in.")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                }
+                .padding()
+                
+                VStack(spacing: 20) {
+                    TextField("Email", text: $username)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(18)
+                        .padding(.horizontal, 20)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                    
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(18)
+                        .padding(.horizontal, 20)
+                }
+                .padding(.bottom, 20)
+                
+                Spacer()
+                
+                Button(action: signIn) {
+                    Text("Sign In")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                }
+                .frame(maxWidth: .infinity, maxHeight: 60)
+                .background(Color("SunshineYellow"))
+                .cornerRadius(18)
+                .shadow(radius: 10)
+                .padding([.leading, .trailing])
             }
-            .padding(.bottom, 20)
-            
-            Spacer()
-            
-            Button(action: signIn) {
-                Text("Sign In")
-                    .font(.headline)
-                    .foregroundColor(.white)
+            .background(Color("SundanceBlue"))
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading){
+                    Button{
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .font(.system(size: 25))
+                            .foregroundColor(.white)
+                    }
+                }
             }
-            .frame(maxWidth: .infinity, maxHeight: 60)
-            .background(.blue)
-            .cornerRadius(18)
-            .shadow(radius: 10)
-            .padding([.leading, .trailing])
         }
+        
+        
+        
+        
+        
         .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Sign In Error"),

@@ -7,18 +7,22 @@
 
 import SwiftUI
 import AVKit
+import AVFoundation
 import SwiftData
 import FirebaseFirestore
 
 struct VideoPlayerView: View {
-    //var videoURL: String
     let run: Runs
     @State private var player: AVPlayer
     @State private var navigateToAnotherView = false
+    
     @Environment(\.modelContext) private var context
+    
     @State private var currentTime: Double = 0
     @State private var savedPlaybackTime: Double = 0
-    
+    @State private var isPlaying = false
+    @State private var duration: Double = 0.0
+    @State private var showControls = true
     
     init(run: Runs) {
         self.run = run
@@ -28,22 +32,63 @@ struct VideoPlayerView: View {
     }
     
     var body: some View {
-        VStack {
-            VideoPlayer(player: player)
-                .onAppear {
-                    self.player.play()
-                    // Add a periodic time observer
-                    let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-                    player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
-                        self.currentTime = time.seconds
+        GeometryReader { geometry in
+            ZStack {
+                Color.black.edgesIgnoringSafeArea(.all)
+                PlayerView(player: player)
+                    .edgesIgnoringSafeArea(.all)
+                
+                Color.black.opacity(showControls ? 0.5 : 0)
+                    .edgesIgnoringSafeArea(.all)
+                    .animation(.easeInOut, value: showControls)
+                
+                VStack {
+                    Spacer()
+                    
+                    // Centered controls
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: playPause) {
+                            Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 60))
+                        }
+                        
+                        Spacer()
                     }
+                    .frame(width: geometry.size.width)
+                    
+                    Spacer()
+                    
+                    // Time left and label
+                    VStack(spacing: 10) {
+                        Text(formattedTimeLeft)
+                            .foregroundColor(.white)
+                        Text("Workout Remaining")
+                            .font(.system(size: 14))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 20)
                 }
-            Spacer()
+                .opacity(showControls ? 1 : 0)
+                .animation(.easeInOut, value: showControls)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation {
+                    showControls.toggle()
+                }
+            }
+        }
+        .onAppear {
+            setupPlayer()
         }
         .preferredColorScheme(.dark)
         .overlay(
             Button(action: {
-                self.savedPlaybackTime = self.currentTime // Current playback time
+                self.savedPlaybackTime = self.currentTime
                 saveWorkoutLocally()
                 saveWorkoutCloud()
                 self.navigateToAnotherView = true
@@ -55,10 +100,47 @@ struct VideoPlayerView: View {
                     .foregroundColor(.white)
             }
             .padding()
-            .position(x: 30, y: 30) // Adjusted position here
+            .position(x: 30, y: 30)
         )
         .fullScreenCover(isPresented: $navigateToAnotherView) {
-            ProfileView() // Change to your desired view
+            ProfileView()
+        }
+    }
+    
+    
+    private var formattedTimeLeft: String {
+        let timeLeft = max(duration - currentTime, 0)
+        return formattedTime(timeLeft)
+    }
+    
+    private func formattedTime(_ time: Double) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    private func setupPlayer() {
+        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: 600), queue: .main) { time in
+            currentTime = time.seconds
+            if let duration = player.currentItem?.duration.seconds {
+                self.duration = duration
+            }
+        }
+    }
+    
+    private func playPause() {
+        if isPlaying {
+            player.pause()
+        } else {
+            player.play()
+            hideControls()
+        }
+        isPlaying.toggle()
+    }
+    
+    private func hideControls() {
+        withAnimation {
+            showControls = false
         }
     }
     

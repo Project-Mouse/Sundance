@@ -28,7 +28,6 @@
 		B62F41692C26087800DE065A /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41682C26087800DE065A /* WorkoutModel.swift */; };
 		B62F416B2C2615B100DE065A /* PurposeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F416A2C2615B100DE065A /* PurposeModel.swift */; };
 		B62F416D2C2618A800DE065A /* ProfileSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F416C2C2618A800DE065A /* ProfileSetup.swift */; };
-		B62F416F2C261BAF00DE065A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F416E2C261BAF00DE065A /* SignUpView.swift */; };
 		B62F41742C261BDA00DE065A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41732C261BDA00DE065A /* ProfileView.swift */; };
 		B62F41762C2623E900DE065A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41752C2623E900DE065A /* AvatarView.swift */; };
 		B62F41782C26DBE900DE065A /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41772C26DBE900DE065A /* VideoPlayerView.swift */; };
@@ -36,10 +35,17 @@
 		B62F417C2C27178D00DE065A /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F417B2C27178D00DE065A /* SubscriptionModel.swift */; };
 		B62F417F2C2719FF00DE065A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B62F417E2C2719FF00DE065A /* GoogleService-Info.plist */; };
 		B62F41822C271E0C00DE065A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B62F41812C271E0C00DE065A /* FirebaseFirestore */; };
-		B62F41842C272C5500DE065A /* LimitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41832C272C5500DE065A /* LimitedView.swift */; };
 		B62F41862C272F6E00DE065A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41852C272F6E00DE065A /* SignInView.swift */; };
 		B62F41882C27397100DE065A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41872C27397100DE065A /* AuthManager.swift */; };
 		B62F418A2C27397D00DE065A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B62F41892C27397D00DE065A /* FirebaseAuth */; };
+		B62F418F2C2F6FBF00DE065A /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F418E2C2F6FBF00DE065A /* PlayerUIView.swift */; };
+		B62F41932C2F735900DE065A /* PreWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41922C2F735900DE065A /* PreWorkoutView.swift */; };
+		B62F41952C2F739500DE065A /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41942C2F739500DE065A /* ErrorHandling.swift */; };
+		B62F41992C30AF3D00DE065A /* LimitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41982C30AF3D00DE065A /* LimitedView.swift */; };
+		B62F419B2C30AFC700DE065A /* KeepMeUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F419A2C30AFC700DE065A /* KeepMeUpdated.swift */; };
+		B62F419D2C30AFDB00DE065A /* WhyIWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F419C2C30AFDB00DE065A /* WhyIWorkout.swift */; };
+		B62F419F2C30B01C00DE065A /* ProfileSettingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F419E2C30B01C00DE065A /* ProfileSettingUp.swift */; };
+		B62F41A12C30B02600DE065A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F41A02C30B02600DE065A /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,16 +72,22 @@
 		B62F41682C26087800DE065A /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		B62F416A2C2615B100DE065A /* PurposeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurposeModel.swift; sourceTree = "<group>"; };
 		B62F416C2C2618A800DE065A /* ProfileSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetup.swift; sourceTree = "<group>"; };
-		B62F416E2C261BAF00DE065A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B62F41732C261BDA00DE065A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B62F41752C2623E900DE065A /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		B62F41772C26DBE900DE065A /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		B62F41792C26EAC700DE065A /* MoreWorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreWorkoutsView.swift; sourceTree = "<group>"; };
 		B62F417B2C27178D00DE065A /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
 		B62F417E2C2719FF00DE065A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B62F41832C272C5500DE065A /* LimitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedView.swift; sourceTree = "<group>"; };
 		B62F41852C272F6E00DE065A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B62F41872C27397100DE065A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B62F418E2C2F6FBF00DE065A /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		B62F41922C2F735900DE065A /* PreWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreWorkoutView.swift; sourceTree = "<group>"; };
+		B62F41942C2F739500DE065A /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		B62F41982C30AF3D00DE065A /* LimitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedView.swift; sourceTree = "<group>"; };
+		B62F419A2C30AFC700DE065A /* KeepMeUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepMeUpdated.swift; sourceTree = "<group>"; };
+		B62F419C2C30AFDB00DE065A /* WhyIWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyIWorkout.swift; sourceTree = "<group>"; };
+		B62F419E2C30B01C00DE065A /* ProfileSettingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingUp.swift; sourceTree = "<group>"; };
+		B62F41A02C30B02600DE065A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,7 @@
 			children = (
 				B62F41332C1CB81D00DE065A /* Components */,
 				B62F41772C26DBE900DE065A /* VideoPlayerView.swift */,
+				B62F41922C2F735900DE065A /* PreWorkoutView.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 		B62F410E2C1CA0B400DE065A /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				B62F41942C2F739500DE065A /* ErrorHandling.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -239,9 +253,12 @@
 			isa = PBXGroup;
 			children = (
 				B62F416C2C2618A800DE065A /* ProfileSetup.swift */,
-				B62F416E2C261BAF00DE065A /* SignUpView.swift */,
-				B62F41832C272C5500DE065A /* LimitedView.swift */,
+				B62F419E2C30B01C00DE065A /* ProfileSettingUp.swift */,
+				B62F419A2C30AFC700DE065A /* KeepMeUpdated.swift */,
 				B62F41852C272F6E00DE065A /* SignInView.swift */,
+				B62F41982C30AF3D00DE065A /* LimitedView.swift */,
+				B62F419C2C30AFDB00DE065A /* WhyIWorkout.swift */,
+				B62F41A02C30B02600DE065A /* WelcomeView.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -256,6 +273,7 @@
 		B62F41422C1CE9E200DE065A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B62F418E2C2F6FBF00DE065A /* PlayerUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +374,7 @@
 			mainGroup = B62F40EA2C1C9DE800DE065A;
 			packageReferences = (
 				B62F417D2C2719F000DE065A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B62F418B2C27443B00DE065A /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = B62F40F42C1C9DE800DE065A /* Products */;
 			projectDirPath = "";
@@ -388,25 +407,31 @@
 				B62F41882C27397100DE065A /* AuthManager.swift in Sources */,
 				B62F417A2C26EAC700DE065A /* MoreWorkoutsView.swift in Sources */,
 				B62F415E2C25E6A500DE065A /* CategoryView.swift in Sources */,
+				B62F418F2C2F6FBF00DE065A /* PlayerUIView.swift in Sources */,
+				B62F41A12C30B02600DE065A /* WelcomeView.swift in Sources */,
 				B62F41092C1C9E3B00DE065A /* HomeView.swift in Sources */,
 				B62F41602C25EA7300DE065A /* NewWeekView.swift in Sources */,
 				B62F41652C25F7F400DE065A /* MoreFromUs.swift in Sources */,
+				B62F419D2C30AFDB00DE065A /* WhyIWorkout.swift in Sources */,
 				B62F412A2C1CAF3800DE065A /* URLSession+Async.swift in Sources */,
 				B62F41282C1CAF1E00DE065A /* APIService.swift in Sources */,
+				B62F419B2C30AFC700DE065A /* KeepMeUpdated.swift in Sources */,
 				B62F41782C26DBE900DE065A /* VideoPlayerView.swift in Sources */,
 				B62F41762C2623E900DE065A /* AvatarView.swift in Sources */,
 				B62F416B2C2615B100DE065A /* PurposeModel.swift in Sources */,
+				B62F41952C2F739500DE065A /* ErrorHandling.swift in Sources */,
 				B62F412C2C1CAF4F00DE065A /* GraphQLOperation.swift in Sources */,
+				B62F41992C30AF3D00DE065A /* LimitedView.swift in Sources */,
 				B62F417C2C27178D00DE065A /* SubscriptionModel.swift in Sources */,
-				B62F41842C272C5500DE065A /* LimitedView.swift in Sources */,
+				B62F41932C2F735900DE065A /* PreWorkoutView.swift in Sources */,
 				B62F40F92C1C9DE900DE065A /* ContentView.swift in Sources */,
 				B62F41692C26087800DE065A /* WorkoutModel.swift in Sources */,
+				B62F419F2C30B01C00DE065A /* ProfileSettingUp.swift in Sources */,
 				B62F410B2C1C9E5300DE065A /* TodayView.swift in Sources */,
 				B62F41242C1CAEED00DE065A /* GraphQLResult.swift in Sources */,
 				B62F41862C272F6E00DE065A /* SignInView.swift in Sources */,
 				B62F41742C261BDA00DE065A /* ProfileView.swift in Sources */,
 				B62F416D2C2618A800DE065A /* ProfileSetup.swift in Sources */,
-				B62F416F2C261BAF00DE065A /* SignUpView.swift in Sources */,
 				B62F41512C1EE7B700DE065A /* FirebaseManager.swift in Sources */,
 				B62F40F72C1C9DE900DE065A /* SundanceApp.swift in Sources */,
 				B62F41632C25F14F00DE065A /* InsightsView.swift in Sources */,
@@ -639,6 +664,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.28.0;
+			};
+		};
+		B62F418B2C27443B00DE065A /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

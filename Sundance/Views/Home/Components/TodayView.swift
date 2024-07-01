@@ -14,9 +14,9 @@ struct TodayView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let padding: CGFloat = 16
-            let availableWidth = geometry.size.width - (2 * padding)
-            let height: CGFloat = 480 - (2 * padding)
+            //let padding: CGFloat = 16
+            let availableWidth = geometry.size.width
+            let height: CGFloat = 480
             
             ZStack {
                 AsyncImage(url: URL(string: run.thumbnail)) { phase in
@@ -34,57 +34,66 @@ struct TodayView: View {
                     }
                 }
                 .frame(width: availableWidth, height: height)
-                .clipShape(RoundedRectangle(cornerRadius: 18))
+                //.clipShape(RoundedRectangle(cornerRadius: 18))
                 
-                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.40), Color.clear]),
-                               startPoint: .bottom,
-                               endPoint: .top)
+                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.50), Color.clear]),
+                               startPoint: .top,
+                               endPoint: .bottom)
                 .frame(width: availableWidth, height: height)
-                .cornerRadius(18)
+               // .cornerRadius(18)
                 
                 VStack {
+                    
                     Spacer()
+                    
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text("For You")
-                                .foregroundColor(.white)
-                            Text("Today's Workout")
+                        VStack(alignment: .center) {
+                            Text("Upper Body Strength")
                                 .font(.title)
                                 .bold()
                                 .foregroundColor(.white)
-                                .padding(.bottom, 10)
+                               // .padding(.bottom, 10)
+                            
+                            if isCompleted {
+                                Button {
+                                    //Action
+                                    showHuddle.toggle()
+                                }label: {
+                                    Text("Completed ✅")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }
+                                .frame(maxWidth: 280, maxHeight: 60)
+                                .background(.green)
+                                .cornerRadius(18)
+                                .shadow(radius: 10)
+                                //.padding()
+                            } else {
+                                Button {
+                                    //Action
+                                    showHuddle.toggle()
+                                }label: {
+                                    Text("Let's Go!")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }
+                                .frame(maxWidth: 280, maxHeight: 60)
+                                .background(.blue)
+                                .cornerRadius(18)
+                                .shadow(radius: 10)
+                            }
                         }
-                        Spacer()
                     }
                     .padding()
                 }
                 .frame(width: availableWidth, height: height)
-                
-                // Add this VStack for the green check circle
-                VStack {
-                    HStack {
-                        Spacer()
-                        if isCompleted {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                                .font(.system(size: 30))
-                                .padding()
-                        }
-                    }
-                    Spacer()
-                }
-                .frame(width: availableWidth, height: height)
             }
             .frame(width: availableWidth, height: height)
-            .shadow(radius: 10)
-            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            .padding(.bottom)
         }
         .frame(height: 480)
-        .onTapGesture {
-            showHuddle.toggle()
-        }
         .fullScreenCover(isPresented: $showHuddle) {
-            VideoPlayerView(run: Runs(runIdent: run.runIdent,
+            PreWorkoutView(run: Runs(runIdent: run.runIdent,
                                       thumbnail: run.thumbnail,
                                       runType: run.runType,
                                       coachUrl: run.coachUrl,
